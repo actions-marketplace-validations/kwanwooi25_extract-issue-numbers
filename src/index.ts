@@ -25,9 +25,9 @@ const ISSUE_NUMBER_REGEX = /[A-Z]{2,}-\d+/;
         shouldFetchMore = false;
       }
     }
-    setOutput('issueNumbers', issueNumbers.join(','));
+    setOutput('issueNumbers', [...new Set(issueNumbers)].join(','));
   } catch (error: any) {
-    console.table(error);
+    console.log(error);
     setFailed(error?.errorMessages);
   }
 })();
